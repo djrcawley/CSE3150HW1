@@ -5,11 +5,17 @@ using namespace std;
 vector<long long int> getFactors(long long int number) {
     vector<long long int> factors;
     long long int resultNumber = number;
-    for(long long int i = 2; i <= number; i++){
+    for(long long int i = 2; i*i <= number; i+=2){
+        if(i == 4){
+            i -= 1;
+        }
         while(resultNumber % i == 0 && resultNumber > 0){
             factors.push_back(i);
             resultNumber = resultNumber / i;
         }
+    }
+    if(resultNumber > 2){
+        factors.push_back(resultNumber);
     }
     return factors;
 }
