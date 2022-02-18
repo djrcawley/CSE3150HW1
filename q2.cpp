@@ -11,6 +11,7 @@ long long int* resize(long long int* factors, long long int* len){
     factors = new long long int[lenValue*2];
     copy(temp, temp+lenValue, factors);
     delete[] temp;
+    *len *= 2;
     return factors;
 }
 
